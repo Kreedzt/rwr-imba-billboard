@@ -2,12 +2,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import v1 from './logs/v1.md?raw';
+import mdContent from './mdLogs/2022-07-30.md?raw';
 import './normalize.css';
 import './markdown.less';
 import './App.less';
 
-const defaultContent = v1;
+const defaultContent = mdContent;
 
 function App() {
     const editorDOMRef = useRef<HTMLDivElement>(null);
