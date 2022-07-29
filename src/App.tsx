@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -29,6 +29,10 @@ function App() {
         });
     }, []);
 
+    const plugins = useMemo(() => {
+        return [remarkGfm];
+    }, [remarkGfm]);
+
     return (
         <>
             <div className="app">
@@ -39,7 +43,7 @@ function App() {
                             <div className="content-section" ref={editorDOMRef}>
                                 <ReactMarkdown
                                     children={markdownContent}
-                                    remarkPlugins={[remarkGfm]}
+                                    remarkPlugins={plugins}
                                 />
                             </div>
                         </div>
